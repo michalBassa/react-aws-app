@@ -1,6 +1,7 @@
 const ServiceItemToShow = ({ service }) => {
 
-  return (<>
+  return (
+  <>
     <p>  id: {service.id}</p>
     <p>   name:{service.name}</p>
     <p>   description:{service.description}</p>
