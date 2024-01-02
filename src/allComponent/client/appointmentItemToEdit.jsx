@@ -6,11 +6,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import Alert from '@mui/material/Alert';
 import { useForm } from "react-hook-form";
-import AppointmentMBX from '../admin/appointmentMBX'
-import ServiceMBX from '../admin/servicesMBX'
+import AppointmentMBX from '../mobx/appointmentMBX'
+import ServiceMBX from '../mobx/servicesMBX'
 import dayjs from 'dayjs';
 import DialogContentText from '@mui/material/DialogContentText';
 import { useEffect } from "react";
+import InputLabel from '@mui/material/InputLabel';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
 
 export default function AppointmentItemToEdit({ setEditAppointment }) {
 
@@ -59,7 +62,7 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
     setOpen(false);
   };
 
-  const handleChange=(value, field)=> {
+  const handleChange = (value, field) => {
     setNewAppointment(Object.assign(newAppointment, { [field]: value }));
   }
 
@@ -86,10 +89,22 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
                 add details to appointment
 
               </DialogContentText>
-              <select onChange={(e) => { console.log('e', e); handleChange(e.target.value, 'serviceName') }}>
-                <option disabled selected>please select</option>
-                {ServiceMBX.listServices.map((s, index) => <option value={s.name} key={index}>{s.name}</option>)}
-              </select>
+              
+               <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">pleas select service name</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value="serviceName"
+                    label="serviceName"
+                    onChange={(e)=>handleChange( e.target.value,'serviceName')}
+                  >
+                    {ServiceMBX.listServices.map((s, index) => <MenuItem value={s.name} key={index}>{s.name}</MenuItem>)}
+                  </Select>
+                </FormControl>
+              </Box> 
+
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
                   label="Controlled picker"

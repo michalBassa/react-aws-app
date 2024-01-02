@@ -3,7 +3,7 @@ import AdminBusinessToShow from "../admin/adminDetailsToShow";
 import AdminServices from "../admin/adminServices";
 import AppointmentItemToEdit from './appointmentItemToEdit'
 import AdminAppointments from "../admin/adminAppointments";
-import BusinessData from "../admin/businessMBX";
+import BusinessData from "../mobx/businessMBX";
 
 export default function ClientWellcom() {
 

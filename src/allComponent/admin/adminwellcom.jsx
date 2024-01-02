@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import AdminBusinessToShow from './adminDetailsToShow'
 import AdminInputLogin from "./adminInputLogin"
-import BusinessData from './businessMBX'
+import BusinessData from '../mobx/businessMBX'
 
 const AdminWellcom = observer(() => {
 

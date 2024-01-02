@@ -1,18 +1,42 @@
-const ServiceItemToShow = ({ service }) => {
+import { observer } from "mobx-react-lite";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+
+const ServiceItemToShow =observer( ({ service }) => {
 
   return (
-  <>
-    <p>  id: {service.id}</p>
-    <p>   name:{service.name}</p>
-    <p>   description:{service.description}</p>
-    <p>  price:{service.price}</p>
-    <p>   duration: {service.duration}</p>
-  </>)
-}
+    <div>
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        id: {service.id}
+        </Typography>
+
+        <Typography >
+        name:{service.name}
+        </Typography>
+
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        description:{service.description}
+        </Typography>
+
+        <Typography variant="body2">
+          price:{service.price}
+        </Typography>
+
+        <Typography variant="body2">
+        duration: {service.duration}
+        </Typography>
+      </CardContent>
+
+    </Card>
+  </div>
+  )
+})
 
 export default ServiceItemToShow;
-
-
 
 
 

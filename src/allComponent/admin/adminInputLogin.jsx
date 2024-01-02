@@ -1,5 +1,5 @@
 import { useState } from "react"
-import BusinessData from './businessMBX'
+import BusinessData from '../mobx/businessMBX'
 
 export default function AdminInputLogin() {
 

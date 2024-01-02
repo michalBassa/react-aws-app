@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import AppointmentItemToShow from './appintmentItemToShow'
-import AppointmentMBX from './appointmentMBX'
+import AppointmentMBX from '../mobx/appointmentMBX'
 import './designCards.css'
 
 const AdminAppointments = observer(() => {

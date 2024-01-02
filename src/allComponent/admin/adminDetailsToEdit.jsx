@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { useState } from "react"
-import BusinessData from './businessMBX'
+import BusinessData from '../mobx/businessMBX'
 import TextField from '@mui/material/TextField';
 
 const AdminBusinessToEdit = observer((props) => {

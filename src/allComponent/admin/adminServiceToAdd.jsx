@@ -1,4 +1,4 @@
-import ServiceMBX from './servicesMBX'
+import ServiceMBX from '../mobx/servicesMBX'
 import { useForm } from "react-hook-form";
 
 export default function AdminServiceToAdd({setIsAdd}) {

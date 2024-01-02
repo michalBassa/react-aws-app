@@ -1,14 +1,16 @@
 import { observer } from "mobx-react-lite";
-import BusinessData from './businessMBX'
+import BusinessData from '../mobx/businessMBX'
 import AdminOption from "./adminOption";
 import * as React from 'react';
 import CardActions from '@mui/material/CardActions';
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import './css.css'
 
 const AdminBusinessToShow = observer(() => {
 
   return (
     <>
+    <div className="detailsBusiness">
       <Card variant="outlined" sx={{ width: 320 }}>
         <CardActions>
           <Card>
@@ -31,6 +33,7 @@ const AdminBusinessToShow = observer(() => {
           </CardContent>
         </CardActions>
       </Card>
+      </div>
       {BusinessData.isLogin && <AdminOption></AdminOption>}</>
   )
 })
