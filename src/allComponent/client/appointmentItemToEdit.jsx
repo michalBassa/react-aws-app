@@ -46,7 +46,6 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
       clientEmail: data.clientEmail
     })
     if (AppointmentMBX.isAdd) {
-      console.log(AppointmentMBX.isAdd)
       setOpen(false)
       setOpenSuccsess(true)
       setOpenError(false);
