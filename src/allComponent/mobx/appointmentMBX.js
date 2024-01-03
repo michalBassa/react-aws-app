@@ -49,6 +49,8 @@ class AppointmentMBX {
         else {
             this.setIsAdd(false)
         }
+        console.log(response.status)
+        console.log(this.isAdd)
 
     }
 }

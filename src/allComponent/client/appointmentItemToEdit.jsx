@@ -37,7 +37,7 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
   })
 
   const handleSubmit = async (data) => {
-    data.preventDefault();
+     data.preventDefault();
     await AppointmentMBX.addAppointment({
       serviceName: newAppointment.serviceName,
       dateTime: new Date(newAppointment.dateTime),
@@ -46,16 +46,18 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
       clientEmail: data.clientEmail
     })
     if (AppointmentMBX.isAdd) {
+      console.log(AppointmentMBX.isAdd)
       setOpen(false)
       setOpenSuccsess(true)
       setOpenError(false);
-      e.target.reset();
+      // setEditAppointment(false)
+        data.target.reset();
+       
     }
     else {
       setOpenError(true);
       setOpenSuccsess(false);
     }
-
   }
 
   const handleClose = () => {
@@ -89,7 +91,16 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
                 add details to appointment
 
               </DialogContentText>
-              
+
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="Controlled picker"
+                  value={date}
+                  onChange={(date) => { handleChange(date, 'dateTime') }}
+                  disablePast={true}
+                />
+              </LocalizationProvider>
+
                <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">pleas select service name</InputLabel>
@@ -104,15 +115,7 @@ export default function AppointmentItemToEdit({ setEditAppointment }) {
                   </Select>
                 </FormControl>
               </Box> 
-
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateTimePicker
-                  label="Controlled picker"
-                  value={date}
-                  onChange={(date) => { handleChange(date, 'dateTime') }}
-                  disablePast={true}
-                />
-              </LocalizationProvider>
+           
               <TextField id="outlined-basic" label="clientName" variant="outlined" placeholder="clientName" {...register("clientName", { min: 5 })} />
               <TextField id="outlined-basic" label="clientPhone" variant="outlined" placeholder="clientPhone" {...register("clientPhone", { min: 15 })} />
               <TextField id="outlined-basic" label="clientEmail" variant="outlined" placeholder="clientEmail" {...register("clientEmail", { min: 15 })} />

@@ -25,6 +25,7 @@ const AdminBusinessToEdit = observer((props) => {
     }
     return (
         <form >
+        <TextField id="outlined-basic" label="name" variant="outlined" placeholder={BusinessData.buisness.name} onChange={(e) => setName(e.target.value)}/>
         <TextField id="outlined-basic" label="adress" variant="outlined" placeholder={BusinessData.buisness.adress} onChange={(e) => setAdress(e.target.value)}/>
         <TextField id="outlined-basic" label="owner" variant="outlined" placeholder={BusinessData.buisness.owner} onChange={(e) => setOwner(e.target.value)}/>
         <TextField id="outlined-basic" label="phone" variant="outlined" placeholder={BusinessData.buisness.phone} onChange={(e) => setPhone(e.target.value)}/>
